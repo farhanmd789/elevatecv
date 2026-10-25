@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: resumeai-test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  ai:
+    google:
+      genai:
+        api-key: test-dummy-key
+        chat:
+          options:
+            model: gemini-2.5-flash
+
+app:
+  jwt:
+    secret: mySecretKeyForJWTTokenGenerationThatIsLongEnoughToBeSecure2024ResumeAI
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: http://localhost:5173
+  ai:
+    rate-limit:
+      requests-per-hour: 50
